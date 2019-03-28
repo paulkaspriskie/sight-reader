@@ -58,7 +58,7 @@ if (app.get('env') === 'development') {
 
 
   // es file watcher: *only runs when in dev.
-  const appJs = chokidar.watch('./src/js/app.js', {
+  const appJs = chokidar.watch('./src/js/index.js', {
     ignored: /^\./,
     persistent: true,
     awaitWriteFinish: true
@@ -132,7 +132,7 @@ function renderSass() {
  */
 function compileJs() {
   browserify({ debug: true })
-    .require("./src/js/app.js", { comments: false, entry: true })
+    .require("./src/js/index.js", { comments: false, entry: true })
     .transform(babelify, { presets: ["@babel/preset-env", "@babel/preset-react"] })
     .transform('uglifyify', { sourceMap: false })
     .bundle()
