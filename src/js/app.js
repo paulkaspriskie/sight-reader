@@ -1,7 +1,11 @@
-const markUp = `
-  <div id="app">
-    <h1>Front-end Development Tools</h1>
-  </div>
-`;
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-document.body.innerHTML = markUp;
+const rootElement = document.getElementById('app');
+
+ReactDOM.render(
+  <div id="app">
+    <h1>sight-reader</h1>
+  </div>,
+  rootElement
+);

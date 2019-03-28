@@ -1,6 +1,6 @@
 {
-  "name": "frontend-dev-tools",
-  "version": "1.0.0",
+  "name": "sight-reader",
+  "version": "0.0.1",
   "description": "",
   "main": "src/js/app.js",
   "scripts": {
@@ -28,5 +28,11 @@
     "socket.io-client": "^2.2.0",
     "stylelint": "^9.10.1",
     "uglifyify": "^5.0.1"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1"
   }
 }
