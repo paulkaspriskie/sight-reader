@@ -1,0 +1,32 @@
+{
+  "name": "frontend-dev-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/js/app.js",
+  "scripts": {
+    "start": "node utils/start.js",
+    "build": "NODE_ENV=production node utils/start.js",
+    "es-lint": "./node_modules/.bin/eslint -c utils/.eslintrc.json src/js/app.js",
+    "style-lint": "./node_modules/.bin/stylelint src/scss/app.scss --config utils/.stylelintrc.json"
+  },
+  "author": "paul kaspriskie",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.2",
+    "chokidar": "^2.1.1",
+    "eslint": "^5.13.0",
+    "express": "^4.16.4",
+    "graceful-chokidar": "^0.1.0",
+    "node-sass": "^4.11.0",
+    "node-sass-watcher": "^0.5.1",
+    "opn": "^5.4.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "stylelint": "^9.10.1",
+    "uglifyify": "^5.0.1"
+  }
+}
