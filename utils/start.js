@@ -40,7 +40,7 @@ if (app.get('env') === 'development') {
 
   app.use(express.static(publicDir));
   http.listen(3000, () => console.info('\x1b[37m', '🌎  Listening on port 3000, open browser to http://localhost:3000/'));
-  opn('http://localhost:3000');
+  // opn('http://localhost:3000');
 
 
   // Monitors pulic dir for changes and triggers browser auto-refresh.
@@ -58,7 +58,7 @@ if (app.get('env') === 'development') {
 
 
   // es file watcher: *only runs when in dev.
-  const appJs = chokidar.watch('./src/js/index.js', {
+  const appJs = chokidar.watch('./src/js/**/*.js', {
     ignored: /^\./,
     persistent: true,
     awaitWriteFinish: true
