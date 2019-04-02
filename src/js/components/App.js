@@ -11,24 +11,31 @@ class App extends React.Component {
       counter: 5
     };
 
+    this.startTimer = this.startTimer.bind(this);
     this.countDown = this.countDown.bind(this);
   }
 
-  componentDidMount() {
+  // componentDidMount() {
+  //   let timer = setInterval(this.countDown, 1000);
+  //   this.setState({timer});
+  // }
+  //
+  // componentWillUnmount() {
+  //   this.clearInterval(this.state.timer);
+  // }
+
+  startTimer() {
     let timer = setInterval(this.countDown, 1000);
     this.setState({timer});
   }
 
-  componentWillUnmount() {
-    this.clearInterval(this.state.timer);
-  }
-
   countDown() {
+
     this.setState({
       counter: this.state.counter - 1
     });
 
-    if (this.state.counter === 0) {
+    if (this.state.counter <= 0) {
       clearInterval(this.state.timer);
     }
 
@@ -38,9 +45,11 @@ class App extends React.Component {
     return (
       <div>
         <h1>{ this.state.counter }</h1>
+        <button onClick={this.startTimer}>Start</button>
       </div>
     );
   }
+
 }
 
 export default App;
