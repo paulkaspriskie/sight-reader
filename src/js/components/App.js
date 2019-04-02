@@ -8,7 +8,7 @@ class App extends React.Component {
 
     this.state = {
       timer: null,
-      counter: 60
+      counter: 5
     };
 
     this.countDown = this.countDown.bind(this);
@@ -27,8 +27,12 @@ class App extends React.Component {
     this.setState({
       counter: this.state.counter - 1
     });
-  }
 
+    if (this.state.counter === 0) {
+      clearInterval(this.state.timer);
+    }
+
+  }
 
   render() {
     return (
