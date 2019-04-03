@@ -28,6 +28,7 @@ class App extends React.Component {
 
     if (this.state.counter <= 0) {
       clearInterval(this.state.timer);
+      this.setState({counter: 5});
     }
 
   }
