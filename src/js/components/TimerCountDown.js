@@ -41,7 +41,7 @@ class TimerCountDown extends React.Component {
   render() {
     return (
       <div>
-        <h1>{ this.state.counter }</h1>
+        <h1>{this.state.counter}</h1>
         <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
       </div>
     );
