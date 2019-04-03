@@ -1,0 +1,32 @@
+{
+  "images" : [
+    {
+      "src" : "../img/test.jpg",
+      "id" : "a"
+    },
+    {
+      "src": "../img/test.jpg",
+      "id": "b"
+    },
+    {
+      "src": "../img/test.jpg",
+      "id": "c"
+    }
+    {
+      "src" : "../img/test.jpg",
+      "id" : "d"
+    },
+    {
+      "src": "../img/test.jpg",
+      "id": "e"
+    },
+    {
+      "src": "../img/test.jpg",
+      "id": "f"
+    },
+    {
+      "src": "../img/test.jpg",
+      "id": "g"
+    }
+  ]
+}
