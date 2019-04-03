@@ -8,6 +8,8 @@ html {
 }
 
 #app {
+
+  #isHidden{ display: none; }
   padding: 1.5em 3em 0 3em;
 
   & > h1 {
