@@ -12,7 +12,16 @@ html {
   #isHidden{ display: none; }
   padding: 1.5em 3em 0 3em;
 
-  & > h1 {
-    margin: 0;
+  & > div:first-of-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      width: 30%;
+      text-align: center;
+    }
+
   }
+
 }
