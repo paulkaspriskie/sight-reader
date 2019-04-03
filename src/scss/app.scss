@@ -10,7 +10,6 @@ html {
 #root {
 
   #isHidden{ display: none; }
-  padding: 1.5em 3em 0 3em;
 
   & > div:first-of-type {
     display: flex;
@@ -18,7 +17,7 @@ html {
     align-items: center;
 
     & > div {
-      width: 30%;
+      width: 20%;
       text-align: center;
     }
 

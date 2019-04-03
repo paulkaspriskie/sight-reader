@@ -7,10 +7,17 @@ class NumGenRandom extends React.Component {
 
     this.state = {
       numValue: '-',
-      scoreCounter: 0
+      scoreCounter: 0,
+      data:{}
     };
 
     this.numGenerator = this.numGenerator.bind(this);
+  }
+
+  componentDidMount() {
+    fetch('./data/data.json', )
+      .then(response => response.json())
+      .then(data => this.setState({data}));
   }
 
   numGenerator() {
@@ -20,7 +27,7 @@ class NumGenRandom extends React.Component {
     this.setState({
       numValue: randomNumber,
       scoreCounter: this.state.scoreCounter + 1
-    })
+    });
 
   }
 

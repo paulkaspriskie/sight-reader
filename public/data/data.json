@@ -1,0 +1,32 @@
+{
+  "images" : [
+    {
+      "src" : "img/kitten-1.jpg",
+      "id" : "a"
+    },
+    {
+      "src" : "img/kitten-2.jpg",
+      "id" : "b"
+    },
+    {
+      "src" : "img/kitten-3.jpg",
+      "id" : "c"
+    },
+    {
+      "src" : "img/kitten-3.jpg",
+      "id" : "d"
+    },
+    {
+      "src" : "img/kitten-3.jpg",
+      "id" : "e"
+    },
+    {
+      "src" : "img/kitten-3.jpg",
+      "id" : "f"
+    },
+    {
+      "src" : "img/kitten-3.jpg",
+      "id" : "g"
+    }
+  ]
+}

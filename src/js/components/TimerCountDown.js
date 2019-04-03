@@ -8,7 +8,7 @@ class TimerCountDown extends React.Component {
 
     this.state = {
       timer: null,
-      counter: 5,
+      counter: 60,
       buttonActive: true
     };
 
@@ -31,7 +31,7 @@ class TimerCountDown extends React.Component {
     if (this.state.counter <= 0) {
       clearInterval(this.state.timer);
       this.setState({
-        counter: 5,
+        counter: 60,
         buttonActive: !this.state.buttonActive
       });
     }
