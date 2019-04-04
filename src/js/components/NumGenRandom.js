@@ -14,6 +14,7 @@ class NumGenRandom extends React.Component {
     this.numGenerator = this.numGenerator.bind(this);
   }
 
+
   componentDidMount() {
     fetch('./data/data.json')
       .then(response => response.json())
@@ -22,7 +23,11 @@ class NumGenRandom extends React.Component {
     this.setState({numValue: 400});
   }
 
+
   numGenerator() {
+    var letters = ["a", "b", "c", "d", "e", "f", "g"];
+    var letter = letters[Math.floor(Math.random() * letters.length)];
+    console.log(letter);
 
     // var randomNumber = Math.floor(Math.random() * 100) + 1 ;
     var randomNumber = Math.floor(Math.random() * (800 - 200)) + 200;
@@ -31,8 +36,8 @@ class NumGenRandom extends React.Component {
       numValue: randomNumber,
       scoreCounter: this.state.scoreCounter + 1
     });
-
   }
+
 
   render() {
 
@@ -40,8 +45,8 @@ class NumGenRandom extends React.Component {
 
     return (
       <div>
-        <h1>{this.state.numValue}</h1>
-        <p>{this.state.scoreCounter}</p>
+        {/*<h1>{this.state.numValue}</h1>*/}
+        <h2>{this.state.scoreCounter}</h2>
         <img src={"https://placekitten.com/" + this.state.numValue + "/" + verticalDimension }></img>
         <button onClick={this.numGenerator}>Click</button>
       </div>

@@ -9,16 +9,34 @@ html {
 
 #root {
 
-  #isHidden{ display: none; }
+  #isHidden { display: none; }
 
   & > div:first-of-type {
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
 
     & > div {
-      width: 20%;
+      width: 90%;
       text-align: center;
+    }
+
+    & > div:first-of-type {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & > h1 { padding: 0 2rem 0 2rem; }
+    }
+
+    & > div:last-of-type {
+      & > img {
+        display: block;
+        margin: 0 auto;
+      }
+
+      & > button { margin: 2rem 0 2rem 0; }
     }
 
   }
