@@ -35,6 +35,7 @@ class NumGenRandom extends React.Component {
       numValue: randomNumber,
       scoreCounter: this.state.scoreCounter + 1
     });
+
   }
 
 
