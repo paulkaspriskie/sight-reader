@@ -43,12 +43,25 @@ class NumGenRandom extends React.Component {
 
     var verticalDimension = Math.floor(this.state.numValue / 2);
 
+    var Data = this.state.data;
+    var arr = [];
+
+    Object.keys(Data).forEach(function(key) {
+      arr.push(Data[key]);
+    })
+
+    console.log(arr);
+
     return (
       <div>
         {/*<h1>{this.state.numValue}</h1>*/}
         <h2>{this.state.scoreCounter}</h2>
         <img src={"https://placekitten.com/" + this.state.numValue + "/" + verticalDimension }></img>
-        <button onClick={this.numGenerator}>Click</button>
+        { arr.map((items, i) => {
+          return items.map((item, i) => {
+            return <button onClick={this.numGenerator} key={i}>{item.id}</button>
+          })
+        })}
       </div>
     );
   }
