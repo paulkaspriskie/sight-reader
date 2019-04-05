@@ -24,12 +24,13 @@ class NumGenRandom extends React.Component {
   }
 
 
-  numGenerator() {
+  numGenerator(e) {
     var letters = ["a", "b", "c", "d", "e", "f", "g"];
     var letter = letters[Math.floor(Math.random() * letters.length)];
-
-    // var randomNumber = Math.floor(Math.random() * 100) + 1 ;
     var randomNumber = Math.floor(Math.random() * (800 - 200)) + 200;
+
+    var input = e.currentTarget.textContent;
+    console.log(input);
 
     this.setState({
       numValue: randomNumber,

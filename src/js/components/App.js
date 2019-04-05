@@ -18,6 +18,7 @@ class App extends React.Component {
       this.countDown = this.countDown.bind(this);
     }
 
+
     startTimer() {
       let timer = setInterval(this.countDown, 1000);
       this.setState({
@@ -27,8 +28,8 @@ class App extends React.Component {
       });
     }
 
-    countDown() {
 
+    countDown() {
       this.setState({counter: this.state.counter - 1});
 
       if (this.state.counter <= 0) {
