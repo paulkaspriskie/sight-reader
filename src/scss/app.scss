@@ -31,14 +31,18 @@ html {
     }
 
     & > div:last-of-type {
-      & > img {
+      & > span {
         display: block;
+        width: 40%;
         margin: 0 auto;
-        padding-bottom: 1rem;
+        padding: 150px 0 150px 0;
+        font-size: 22pt;
+        background-color: #666;
       }
       & > div {
-        margin: 0 auto;
         width:  35%;
+        margin: 0 auto;
+        padding: 2rem 0 0 0;
         & > button {
           margin: 1rem 0.5rem 1rem 0.5rem;
           padding: 1rem 2rem 1rem 2rem;

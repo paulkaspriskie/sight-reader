@@ -12,6 +12,7 @@ class NumGenRandom extends React.Component {
     };
 
     this.numGenerator = this.numGenerator.bind(this);
+    this.generateRandNum = this.generateRandNum.bind(this);
   }
 
 
@@ -20,22 +21,26 @@ class NumGenRandom extends React.Component {
       .then(response => response.json())
       .then(data => this.setState({data}));
 
-    this.setState({numValue: 400});
+    this.generateRandNum();
+  }
+
+
+  generateRandNum() {
+    var letters = ["a", "b", "c", "d", "e", "f", "g"];
+    var letter = letters[Math.floor(Math.random() * letters.length)];
+
+    this.setState({ numValue: letter });
   }
 
 
   numGenerator(e) {
+
     var letters = ["a", "b", "c", "d", "e", "f", "g"];
     var letter = letters[Math.floor(Math.random() * letters.length)];
-    var randomNumber = Math.floor(Math.random() * (800 - 200)) + 200;
 
     var input = e.currentTarget.textContent;
-    console.log(input);
 
-    this.setState({
-      numValue: randomNumber,
-      scoreCounter: this.state.scoreCounter + 1
-    });
+    this.setState({ numValue: letter, scoreCounter: this.state.scoreCounter + 1 });
 
   }
 
@@ -54,7 +59,7 @@ class NumGenRandom extends React.Component {
     return (
       <div>
         <h2>{this.state.scoreCounter}</h2>
-        <img src={"https://placekitten.com/" + this.state.numValue + "/" + verticalDimension }></img>
+        <span>{this.state.numValue}</span>
         <div>
           { arr.map((items, i) => {
             return items.map((item, i) => {
