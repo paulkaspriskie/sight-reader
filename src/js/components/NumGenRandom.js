@@ -30,18 +30,15 @@ class NumGenRandom extends React.Component {
     var letter = letters[Math.floor(Math.random() * letters.length)];
 
     this.setState({ numValue: letter });
+    return letter
   }
 
 
   numGenerator(e) {
-
-    var letters = ["a", "b", "c", "d", "e", "f", "g"];
-    var letter = letters[Math.floor(Math.random() * letters.length)];
-
+    var letter = this.generateRandNum();
     var input = e.currentTarget.textContent;
 
     this.setState({ numValue: letter, scoreCounter: this.state.scoreCounter + 1 });
-
   }
 
 
