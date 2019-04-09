@@ -50,7 +50,7 @@ class App extends React.Component {
           <h1>{this.state.counter}</h1>
           <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
         </div>
-        { this.state.showComponent ? <NumGenRandom /> : null }
+        { this.state.showComponent ? <NumGenRandom counter={this.state.counter} /> : null }
       </div>
     );
   }

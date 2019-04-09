@@ -6,7 +6,7 @@ class NumGenRandom extends React.Component {
     super(props);
 
     this.state = {
-      data:{},
+      data: {},
       randLetterValue: '',
       currentLetterValue: '',
       scoreCounter: 0
@@ -53,7 +53,7 @@ class NumGenRandom extends React.Component {
 
 
   render() {
-  
+
     var Data = this.state.data;
     var arr = [];
 
