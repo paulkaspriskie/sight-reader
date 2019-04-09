@@ -14,6 +14,7 @@ class NumGenRandom extends React.Component {
 
     this.onButtonClick = this.onButtonClick.bind(this);
     this.getRandLetter = this.getRandLetter.bind(this);
+    this.updateHighScore = this.updateHighScore.bind(this);
   }
 
 
@@ -23,6 +24,13 @@ class NumGenRandom extends React.Component {
       .then(data => this.setState({data}));
 
     this.getRandLetter();
+  }
+
+
+  componentDidUpdate() {
+    if (this.props.counter === 0) {
+      this.updateHighScore();
+    }
   }
 
 
@@ -49,6 +57,11 @@ class NumGenRandom extends React.Component {
     if (this.state.currentLetterValue === input) {
       this.setState({ scoreCounter: this.state.scoreCounter + 1})
     }
+  }
+
+
+  updateHighScore() {
+    console.log('test');
   }
 
 
