@@ -44,17 +44,16 @@ class NumGenRandom extends React.Component {
     var letter = this.getRandLetter();
     var input = e.currentTarget.textContent;
 
-    this.setState({
-      randLetterValue: letter,
-      scoreCounter: this.state.scoreCounter + 1
-    });
+    this.setState({ randLetterValue: letter });
+
+    if (this.state.currentLetterValue === input) {
+      this.setState({ scoreCounter: this.state.scoreCounter + 1})
+    }
   }
 
 
   render() {
-
-    var verticalDimension = Math.floor(this.state.numValue / 2);
-
+  
     var Data = this.state.data;
     var arr = [];
 
