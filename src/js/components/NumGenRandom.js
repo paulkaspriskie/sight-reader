@@ -6,7 +6,7 @@ class NumGenRandom extends React.Component {
     super(props);
 
     this.state = {
-      numValue: '',
+      randLetterValue: '',
       scoreCounter: 0,
       data:{}
     };
@@ -29,7 +29,7 @@ class NumGenRandom extends React.Component {
     var letters = ["a", "b", "c", "d", "e", "f", "g"];
     var letter = letters[Math.floor(Math.random() * letters.length)];
 
-    this.setState({ numValue: letter });
+    this.setState({ randLetterValue: letter });
     return letter
   }
 
@@ -38,7 +38,10 @@ class NumGenRandom extends React.Component {
     var letter = this.getRandLetter();
     var input = e.currentTarget.textContent;
 
-    this.setState({ numValue: letter, scoreCounter: this.state.scoreCounter + 1 });
+    this.setState({
+      randLetterValue: letter,
+      scoreCounter: this.state.scoreCounter + 1
+    });
   }
 
 
@@ -56,7 +59,7 @@ class NumGenRandom extends React.Component {
     return (
       <div>
         <h2>{this.state.scoreCounter}</h2>
-        <span>{this.state.numValue}</span>
+        <span>{this.state.randLetterValue}</span>
         <div>
           { arr.map((items, i) => {
             return items.map((item, i) => {
