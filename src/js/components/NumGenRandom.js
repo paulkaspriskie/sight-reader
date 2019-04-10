@@ -30,10 +30,7 @@ class NumGenRandom extends React.Component {
 
   componentDidUpdate() {
     if (this.props.counter === 0) {
-      if (this.state.scoreCounter > this.state.highScoreValue) {
-        this.setState({ highScoreValue: this.state.scoreCounter });
-        this.updateHighScore();
-      }
+      this.updateHighScore();
     }
   }
 
@@ -65,7 +62,11 @@ class NumGenRandom extends React.Component {
 
 
   updateHighScore() {
-    this.props.onChange(5);
+    if (this.state.scoreCounter > this.props.childData) {
+      this.setState({ highScoreValue: this.state.scoreCounter }, function() {
+        this.props.onChange(this.state.highScoreValue);
+      });
+    }
   }
 
 
