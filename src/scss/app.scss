@@ -28,7 +28,7 @@ html {
       align-items: center;
 
       & > h1 {
-        font-size: 16pt;
+        font-size: 15pt;
       }
 
       & > button {
@@ -36,10 +36,17 @@ html {
         font-size: 12pt;
       }
 
-      & > p { font-size: 14pt; }
+      & > p {
+        font-size: 15pt;
+        font-weight: bold;
+      }
     }
 
     & > div:last-of-type {
+
+      & > h2 {
+        font-size: 15pt;
+      }
       & > span {
         display: block;
         width: 40%;

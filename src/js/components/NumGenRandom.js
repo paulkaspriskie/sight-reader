@@ -64,6 +64,7 @@ class NumGenRandom extends React.Component {
   updateHighScore() {
     if (this.state.scoreCounter > this.props.childData) {
       this.setState({ highScoreValue: this.state.scoreCounter }, function() {
+        alert(`New high score: ${this.state.highScoreValue}!`);
         this.props.onChange(this.state.highScoreValue);
       });
     }
@@ -81,7 +82,7 @@ class NumGenRandom extends React.Component {
 
     return (
       <div>
-        <h2>{this.state.scoreCounter}</h2>
+        <h2>Score: {this.state.scoreCounter}</h2>
         <span>{this.state.randLetterValue}</span>
         <div>
           { arr.map((items, i) => {
