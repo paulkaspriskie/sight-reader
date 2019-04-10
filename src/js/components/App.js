@@ -12,10 +12,12 @@ class App extends React.Component {
         counter: 60,
         buttonActive: true,
         showComponent: false,
+        childData: 0
       };
 
       this.startTimer = this.startTimer.bind(this);
       this.countDown = this.countDown.bind(this);
+      this.getChildData = this.getChildData.bind(this);
     }
 
 
@@ -32,7 +34,7 @@ class App extends React.Component {
     countDown() {
       this.setState({counter: this.state.counter - 1});
 
-      if (this.state.counter <= 0) {
+      if (this.state.counter === 0) {
         clearInterval(this.state.timer);
         this.setState({
           counter: 60,
@@ -43,14 +45,19 @@ class App extends React.Component {
 
     }
 
+    getChildData(data) {
+      this.setState({childData: data})
+    }
+
   render() {
     return (
       <div className="app-wrapper-sight-reader">
         <div>
           <h1>{this.state.counter}</h1>
           <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
+          <p>{this.state.childData}</p>
         </div>
-        { this.state.showComponent ? <NumGenRandom counter={this.state.counter} /> : null }
+        { this.state.showComponent ? <NumGenRandom onChange={this.getChildData} counter={this.state.counter} /> : null }
       </div>
     );
   }
