@@ -53,9 +53,9 @@ class App extends React.Component {
     return (
       <div className="app-wrapper-sight-reader">
         <div>
-          <h1>{this.state.counter}</h1>
+          <h1>Time: {this.state.counter}</h1>
           <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
-          <p>{this.state.childData}</p>
+          <p>High Score: {this.state.childData}</p>
         </div>
         { this.state.showComponent ? <NumGenRandom onChange={this.getChildData} counter={this.state.counter} childData={this.state.childData} /> : null }
       </div>
