@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NumGenRandom extends React.Component {
+class AppMainPortal extends React.Component {
 
   constructor(props) {
     super(props);
@@ -97,4 +97,4 @@ class NumGenRandom extends React.Component {
 
 }
 
-export default NumGenRandom;
+export default AppMainPortal;

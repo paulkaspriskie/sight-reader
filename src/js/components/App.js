@@ -1,5 +1,5 @@
 import React from 'react';
-import NumGenRandom from './NumGenRandom';
+import AppMainPortal from './AppMainPortal';
 
 
 class App extends React.Component {
@@ -42,7 +42,7 @@ class App extends React.Component {
           showComponent: false
         });
       }
-      
+
     }
 
     getChildData(data) {
@@ -57,7 +57,7 @@ class App extends React.Component {
           <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
           <p>High Score: {this.state.childData}</p>
         </div>
-        {this.state.showComponent ? <NumGenRandom onChange={this.getChildData} counter={this.state.counter} childData={this.state.childData} /> : null}
+        {this.state.showComponent ? <AppMainPortal onChange={this.getChildData} counter={this.state.counter} childData={this.state.childData} /> : null}
       </div>
     );
   }
