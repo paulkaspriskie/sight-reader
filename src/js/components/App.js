@@ -18,7 +18,7 @@ class App extends React.Component {
         counter: 60,
         buttonActive: true,
         showComponent: false,
-        childData: defaultScoreValue
+        currentHighScore: defaultScoreValue
       };
 
       this.startTimer = this.startTimer.bind(this);
@@ -54,12 +54,12 @@ class App extends React.Component {
 
 
     getChildData(data) {
-      this.setState({childData: data}, this.saveStateToStorage);
+      this.setState({currentHighScore: data}, this.saveStateToStorage);
     }
 
 
     saveStateToStorage() {
-      localStorage.setItem('appData',JSON.stringify(this.state.childData));
+      localStorage.setItem('appData',JSON.stringify(this.state.currentHighScore));
     }
 
 
@@ -69,9 +69,9 @@ class App extends React.Component {
         <div>
           <h1>Time: {this.state.counter}</h1>
           <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
-          <p>High Score: {this.state.childData}</p>
+          <p>High Score: {this.state.currentHighScore}</p>
         </div>
-        {this.state.showComponent ? <AppMainPortal onChange={this.getChildData} counter={this.state.counter} childData={this.state.childData} /> : null}
+        {this.state.showComponent ? <AppMainPortal onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
       </div>
     );
   }

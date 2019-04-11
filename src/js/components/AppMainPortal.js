@@ -62,7 +62,7 @@ class AppMainPortal extends React.Component {
 
 
   updateHighScore() {
-    if (this.state.scoreCounter > this.props.childData) {
+    if (this.state.scoreCounter > this.props.currentHighScore) {
       this.setState({ highScoreValue: this.state.scoreCounter }, function() {
         alert(`New high score: ${this.state.highScoreValue}!`);
         this.props.onChange(this.state.highScoreValue);
