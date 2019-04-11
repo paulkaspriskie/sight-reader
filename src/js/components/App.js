@@ -8,10 +8,7 @@ class App extends React.Component {
       super(props);
 
       var defaultScoreValue = 0;
-
-      if (localStorage.getItem('appData')) {
-        defaultScoreValue = parseInt(localStorage.getItem('appData'));
-      }
+      localStorage.getItem('appData') ? defaultScoreValue = parseInt(localStorage.getItem('appData')) : 0;
 
       this.state = {
         timer: null,
