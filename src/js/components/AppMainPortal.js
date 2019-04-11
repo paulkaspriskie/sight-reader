@@ -85,7 +85,7 @@ class AppMainPortal extends React.Component {
         <h2>Score: {this.state.scoreCounter}</h2>
         <span>{this.state.randLetterValue}</span>
         <div>
-          { arr.map((items, i) => {
+          {arr.map((items, i) => {
             return items.map((item, i) => {
               return <button onClick={this.onButtonClick} key={i}>{item.id}</button>
             })

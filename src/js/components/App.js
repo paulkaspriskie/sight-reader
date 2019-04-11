@@ -7,17 +7,24 @@ class App extends React.Component {
     constructor(props) {
       super(props);
 
+      var defaultScoreValue = 0;
+
+      if (localStorage.getItem('appData')) {
+        defaultScoreValue = parseInt(localStorage.getItem('appData'));
+      }
+
       this.state = {
         timer: null,
         counter: 60,
         buttonActive: true,
         showComponent: false,
-        childData: 0
+        childData: defaultScoreValue
       };
 
       this.startTimer = this.startTimer.bind(this);
       this.countDown = this.countDown.bind(this);
       this.getChildData = this.getChildData.bind(this);
+      this.saveStateToStorage = this.saveStateToStorage.bind(this);
     }
 
 
@@ -46,7 +53,11 @@ class App extends React.Component {
     }
 
     getChildData(data) {
-      this.setState({childData: data})
+      this.setState({childData: data}, this.saveStateToStorage);
+    }
+
+    saveStateToStorage() {
+      localStorage.setItem('appData',JSON.stringify(this.state.childData));
     }
 
   render() {
