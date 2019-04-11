@@ -9,7 +9,7 @@ html {
 
 #isHidden { display: none; }
 
-.app-wrapper-sight-reader {
+.sight-reader-app-wrapper {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -27,11 +27,6 @@ html {
 
     & > h1 {
       font-size: 15pt;
-    }
-
-    & > button {
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      font-size: 12pt;
     }
 
     & > p {
@@ -62,6 +57,12 @@ html {
         padding: 1rem 2rem 1rem 2rem;
       }
     }
+  }
+
+  & > button {
+    position: absolute;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 12pt;
   }
 
 }

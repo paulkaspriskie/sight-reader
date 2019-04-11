@@ -1,4 +1,5 @@
 import React from 'react';
+import AppHeader from './AppHeader';
 import AppMainPortal from './AppMainPortal';
 
 
@@ -62,13 +63,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-wrapper-sight-reader">
-        <div>
-          <h1>Time: {this.state.counter}</h1>
-          <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
-          <p>High Score: {this.state.currentHighScore}</p>
-        </div>
+      <div className="sight-reader-app-wrapper">
+        <AppHeader counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
         {this.state.showComponent ? <AppMainPortal onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
+        <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
       </div>
     );
   }
