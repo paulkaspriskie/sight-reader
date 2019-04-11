@@ -28,16 +28,6 @@ class App extends React.Component {
     }
 
 
-    startTimer() {
-      let timer = setInterval(this.countDown, 1000);
-      this.setState({
-        timer,
-        buttonActive: !this.state.buttonActive,
-        showComponent: true
-      });
-    }
-
-
     countDown() {
       this.setState({counter: this.state.counter - 1});
 
@@ -49,16 +39,29 @@ class App extends React.Component {
           showComponent: false
         });
       }
-
     }
+
+
+    startTimer() {
+      let timer = setInterval(this.countDown, 1000);
+
+      this.setState({
+        timer,
+        buttonActive: !this.state.buttonActive,
+        showComponent: true
+      });
+    }
+
 
     getChildData(data) {
       this.setState({childData: data}, this.saveStateToStorage);
     }
 
+
     saveStateToStorage() {
       localStorage.setItem('appData',JSON.stringify(this.state.childData));
     }
+
 
   render() {
     return (

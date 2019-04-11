@@ -7,65 +7,61 @@ html {
   padding: 0;
 }
 
-#root {
+#isHidden { display: none; }
 
-  #isHidden { display: none; }
+.app-wrapper-sight-reader {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+
+  & > div {
+    width: 90%;
+    text-align: center;
+  }
 
   & > div:first-of-type {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
+    & > h1 {
+      font-size: 15pt;
+    }
+
+    & > button {
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      font-size: 12pt;
+    }
+
+    & > p {
+      font-size: 15pt;
+      font-weight: bold;
+    }
+  }
+
+  & > div:last-of-type {
+
+    & > h2 {
+      font-size: 15pt;
+    }
+    & > span {
+      display: block;
+      width: 40%;
+      margin: 0 auto;
+      padding: 150px 0 150px 0;
+      font-size: 22pt;
+      background-color: #666;
+    }
     & > div {
-      width: 90%;
-      text-align: center;
-    }
-
-    & > div:first-of-type {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      & > h1 {
-        font-size: 15pt;
-      }
-
+      width:  35%;
+      margin: 0 auto;
+      padding: 2rem 0 0 0;
       & > button {
-        padding: 0.5rem 1rem 0.5rem 1rem;
-        font-size: 12pt;
-      }
-
-      & > p {
-        font-size: 15pt;
-        font-weight: bold;
+        margin: 1rem 0.5rem 1rem 0.5rem;
+        padding: 1rem 2rem 1rem 2rem;
       }
     }
-
-    & > div:last-of-type {
-
-      & > h2 {
-        font-size: 15pt;
-      }
-      & > span {
-        display: block;
-        width: 40%;
-        margin: 0 auto;
-        padding: 150px 0 150px 0;
-        font-size: 22pt;
-        background-color: #666;
-      }
-      & > div {
-        width:  35%;
-        margin: 0 auto;
-        padding: 2rem 0 0 0;
-        & > button {
-          margin: 1rem 0.5rem 1rem 0.5rem;
-          padding: 1rem 2rem 1rem 2rem;
-        }
-      }
-    }
-
   }
 
 }
