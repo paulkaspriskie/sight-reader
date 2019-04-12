@@ -9,18 +9,28 @@ html {
 
 #isHidden { display: none; }
 
-.sight-reader-app-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
+.sight-reader-layout {
 
-  & > div {
-    width: 90%;
-    text-align: center;
+  &-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      width: 90%;
+      text-align: center;
+    }
+
+    & > button {
+      position: absolute;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      font-size: 12pt;
+    }
   }
 
-  & > div:first-of-type {
+
+  &-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,11 +45,11 @@ html {
     }
   }
 
-  & > div:last-of-type {
 
-    & > h2 {
-      font-size: 15pt;
-    }
+  &-portal-main {
+
+    & > h2 { font-size: 15pt; }
+
     & > span {
       display: block;
       width: 40%;
@@ -48,10 +58,12 @@ html {
       font-size: 22pt;
       background-color: #666;
     }
+
     & > div {
       width:  35%;
       margin: 0 auto;
       padding: 2rem 0 0 0;
+
       & > button {
         margin: 1rem 0.5rem 1rem 0.5rem;
         padding: 1rem 2rem 1rem 2rem;
@@ -59,10 +71,4 @@ html {
     }
   }
 
-  & > button {
-    position: absolute;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    font-size: 12pt;
-  }
-
-}
+} //outer most wrapper class

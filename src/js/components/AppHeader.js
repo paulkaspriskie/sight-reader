@@ -5,7 +5,7 @@ class AppHeader extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="sight-reader-layout-header">
         <h1>Time: {this.props.counter}</h1>
         <p>High Score: {this.props.currentHighScore}</p>
       </div>

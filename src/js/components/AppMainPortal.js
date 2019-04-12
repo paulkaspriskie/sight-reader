@@ -81,7 +81,7 @@ class AppMainPortal extends React.Component {
     })
 
     return (
-      <div>
+      <div className="sight-reader-layout-portal-main">
         <h2>Score: {this.state.scoreCounter}</h2>
         <span>{this.state.randLetterValue}</span>
         <div>

@@ -63,7 +63,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="sight-reader-app-wrapper">
+      <div className="sight-reader-layout-wrapper">
         <AppHeader counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
         {this.state.showComponent ? <AppMainPortal onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
         <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
