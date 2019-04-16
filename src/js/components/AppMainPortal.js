@@ -23,14 +23,11 @@ class AppMainPortal extends React.Component {
     var Data = this.props.data;
     var arr = [];
 
-    Object.keys(Data).forEach(function(key) {
-      arr.push(Data[key]);
-    })
+    Object.keys(Data).forEach(function(key) { arr.push(Data[key]); })
 
     arr.map((items, i) => {
       var randArr = Math.floor(Math.random() * items.length);
       this.setState({ test: items[randArr] });
-      // console.log(items[randArr]);
     });
 
     this.getRandLetter();
@@ -59,7 +56,6 @@ class AppMainPortal extends React.Component {
 
 
   onButtonClick(e) {
-console.log(this.state.test);
     var letter = this.getRandLetter();
     var input = e.currentTarget.textContent;
 
@@ -82,6 +78,13 @@ console.log(this.state.test);
 
 
   render() {
+
+    var Data = this.props.data;
+    var arr = [];
+
+    Object.keys(Data).forEach(function(key) {
+      arr.push(Data[key]);
+    })
 
     return (
       <div className="sight-reader-layout-portal-main">
