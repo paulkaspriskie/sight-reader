@@ -12,6 +12,7 @@ class App extends React.Component {
       localStorage.getItem('appData') ? defaultScoreValue = parseInt(localStorage.getItem('appData')) : 0;
 
       this.state = {
+        data: 0,
         timer: null,
         counter: 60,
         buttonActive: true,
@@ -25,6 +26,11 @@ class App extends React.Component {
       this.saveStateToStorage = this.saveStateToStorage.bind(this);
     }
 
+    componentDidMount() {
+      fetch('./data/data.json')
+        .then(response => response.json())
+        .then(data => this.setState({data}));
+    }
 
     countDown() {
       this.setState({counter: this.state.counter - 1});
@@ -65,7 +71,7 @@ class App extends React.Component {
     return (
       <div className="sight-reader-layout-wrapper">
         <AppHeader counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
-        {this.state.showComponent ? <AppMainPortal onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
+        {this.state.showComponent ? <AppMainPortal data={this.state.data} onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
         <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
       </div>
     );

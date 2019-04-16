@@ -6,11 +6,11 @@ class AppMainPortal extends React.Component {
     super(props);
 
     this.state = {
-      data: {},
       randLetterValue: '',
       currentLetterValue: '',
       scoreCounter: 0,
-      highScoreValue: 0
+      highScoreValue: 0,
+      test: {}
     };
 
     this.onButtonClick = this.onButtonClick.bind(this);
@@ -20,9 +20,18 @@ class AppMainPortal extends React.Component {
 
 
   componentDidMount() {
-    fetch('./data/data.json')
-      .then(response => response.json())
-      .then(data => this.setState({data}));
+    var Data = this.props.data;
+    var arr = [];
+
+    Object.keys(Data).forEach(function(key) {
+      arr.push(Data[key]);
+    })
+
+    arr.map((items, i) => {
+      var randArr = Math.floor(Math.random() * items.length);
+      this.setState({ test: items[randArr] });
+      // console.log(items[randArr]);
+    });
 
     this.getRandLetter();
   }
@@ -36,18 +45,6 @@ class AppMainPortal extends React.Component {
 
 
   getRandLetter() {
-    // var Data = this.state.data;
-    // var arr = [];
-    //
-    // Object.keys(Data).forEach(function(key) {
-    //   arr.push(Data[key]);
-    // })
-    //
-    // arr.map((items, i) => {
-    //   var randArr = Math.floor(Math.random() * items.length);
-    //   console.log(items[randArr]);
-    // });
-
     var letters = ["a", "b", "c", "d", "e", "f", "g"];
     var letter = letters[Math.floor(Math.random() * letters.length)];
 
@@ -62,6 +59,7 @@ class AppMainPortal extends React.Component {
 
 
   onButtonClick(e) {
+console.log(this.state.test);
     var letter = this.getRandLetter();
     var input = e.currentTarget.textContent;
 
@@ -84,13 +82,6 @@ class AppMainPortal extends React.Component {
 
 
   render() {
-
-    var Data = this.state.data;
-    var arr = [];
-
-    Object.keys(Data).forEach(function(key) {
-      arr.push(Data[key]);
-    })
 
     return (
       <div className="sight-reader-layout-portal-main">
