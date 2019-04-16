@@ -5,66 +5,68 @@ import AppMainPortal from './AppMainPortal';
 
 class App extends React.Component {
 
-    constructor(props) {
-      super(props);
+  constructor(props) {
+    super(props);
 
-      var defaultScoreValue = 0;
-      localStorage.getItem('appData') ? defaultScoreValue = parseInt(localStorage.getItem('appData')) : 0;
+    var defaultScoreValue = 0;
+    localStorage.getItem('appData') ? defaultScoreValue = parseInt(localStorage.getItem('appData')) : 0;
 
-      this.state = {
-        data: {},
-        timer: null,
-        counter: 60,
-        buttonActive: true,
-        showComponent: false,
-        currentHighScore: defaultScoreValue
-      };
+    this.state = {
+      data: {},
+      timer: null,
+      counter: 60,
+      buttonActive: true,
+      showComponent: false,
+      currentHighScore: defaultScoreValue
+    };
 
-      this.startTimer = this.startTimer.bind(this);
-      this.countDown = this.countDown.bind(this);
-      this.getChildData = this.getChildData.bind(this);
-      this.saveStateToStorage = this.saveStateToStorage.bind(this);
-    }
-
-    componentDidMount() {
-      fetch('./data/data.json')
-        .then(response => response.json())
-        .then(data => this.setState({data}));
-    }
-
-    countDown() {
-      this.setState({counter: this.state.counter - 1});
-
-      if (this.state.counter === 0) {
-        clearInterval(this.state.timer);
-        this.setState({
-          counter: 60,
-          buttonActive: !this.state.buttonActive,
-          showComponent: false
-        });
-      }
-    }
+    this.startTimer = this.startTimer.bind(this);
+    this.countDown = this.countDown.bind(this);
+    this.getChildData = this.getChildData.bind(this);
+    this.saveStateToStorage = this.saveStateToStorage.bind(this);
+  }
 
 
-    startTimer() {
-      let timer = setInterval(this.countDown, 1000);
+  componentDidMount() {
+    fetch('./data/data.json')
+      .then(response => response.json())
+      .then(data => this.setState({data}));
+  }
 
+
+  countDown() {
+    this.setState({counter: this.state.counter - 1});
+
+    if (this.state.counter === 0) {
+      clearInterval(this.state.timer);
       this.setState({
-        timer,
+        counter: 60,
         buttonActive: !this.state.buttonActive,
-        showComponent: true
+        showComponent: false
       });
     }
+  }
 
 
-    getChildData(data) {
-      this.setState({currentHighScore: data}, this.saveStateToStorage);
-    }
+  startTimer() {
+    let timer = setInterval(this.countDown, 1000);
+
+    this.setState({
+      timer,
+      buttonActive: !this.state.buttonActive,
+      showComponent: true
+    });
+  }
 
 
-    saveStateToStorage() {
-      localStorage.setItem('appData',JSON.stringify(this.state.currentHighScore));
-    }
+  getChildData(data) {
+    this.setState({currentHighScore: data}, this.saveStateToStorage);
+  }
+
+
+  saveStateToStorage() {
+    localStorage.setItem('appData',JSON.stringify(this.state.currentHighScore));
+  }
 
 
   render() {

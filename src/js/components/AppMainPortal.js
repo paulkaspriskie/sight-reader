@@ -42,7 +42,12 @@ class AppMainPortal extends React.Component {
       var randArr = Math.floor(Math.random() * items.length);
       return items[randArr];
     });
-    // console.log(test[0].id);
+
+    var letterArr = [];
+    letterArr.push(test[0].id);
+    console.log(letterArr[0]);
+    this.setState({ test: letterArr[0] });
+
 
     var letters = ["a", "b", "c", "d", "e", "f", "g"];
     var letter = letters[Math.floor(Math.random() * letters.length)];
