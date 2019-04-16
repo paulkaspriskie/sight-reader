@@ -36,6 +36,18 @@ class AppMainPortal extends React.Component {
 
 
   getRandLetter() {
+    // var Data = this.state.data;
+    // var arr = [];
+    //
+    // Object.keys(Data).forEach(function(key) {
+    //   arr.push(Data[key]);
+    // })
+    //
+    // arr.map((items, i) => {
+    //   var randArr = Math.floor(Math.random() * items.length);
+    //   console.log(items[randArr]);
+    // });
+
     var letters = ["a", "b", "c", "d", "e", "f", "g"];
     var letter = letters[Math.floor(Math.random() * letters.length)];
 
