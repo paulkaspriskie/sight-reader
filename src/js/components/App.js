@@ -12,7 +12,7 @@ class App extends React.Component {
       localStorage.getItem('appData') ? defaultScoreValue = parseInt(localStorage.getItem('appData')) : 0;
 
       this.state = {
-        data: 0,
+        data: {},
         timer: null,
         counter: 60,
         buttonActive: true,
