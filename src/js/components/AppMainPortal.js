@@ -10,7 +10,7 @@ class AppMainPortal extends React.Component {
       currentLetterValue: '',
       scoreCounter: 0,
       highScoreValue: 0,
-      test: {}
+      test: ''
     };
 
     this.onButtonClick = this.onButtonClick.bind(this);
@@ -35,9 +35,8 @@ class AppMainPortal extends React.Component {
     var test = Object.values(this.props.data);
 
     test.map((items, i) => {
-      var randArr = Math.floor(Math.random() * items.length);
-      console.log(items[randArr]);
-      // return items[randArr];
+      var getRandArr = Math.floor(Math.random() * items.length);
+      this.setState({test: items[getRandArr].id});
     });
 
     var letters = ["a", "b", "c", "d", "e", "f", "g"];
@@ -86,6 +85,7 @@ class AppMainPortal extends React.Component {
             return <button onClick={this.onButtonClick} key={i}>{items.id}</button>
           })}
         </div>
+        <p>{this.state.test}</p>
       </div>
     );
   }
