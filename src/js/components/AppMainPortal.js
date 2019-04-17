@@ -9,8 +9,7 @@ class AppMainPortal extends React.Component {
       randLetterValue: '',
       currentLetterValue: '',
       scoreCounter: 0,
-      highScoreValue: 0,
-      test: ''
+      highScoreValue: 0
     };
 
     this.onButtonClick = this.onButtonClick.bind(this);
@@ -32,31 +31,22 @@ class AppMainPortal extends React.Component {
 
 
   getRandLetter() {
-    var test = Object.values(this.props.data);
+    var dataArr = Object.values(this.props.data);
 
-    test.map((items, i) => {
+    dataArr.map((items, i) => {
       var getRandArr = Math.floor(Math.random() * items.length);
-      this.setState({test: items[getRandArr].id});
+      this.setState({ randLetterValue: items[getRandArr].id });
     });
-
-    var letters = ["a", "b", "c", "d", "e", "f", "g"];
-    var letter = letters[Math.floor(Math.random() * letters.length)];
-
-    this.setState({ randLetterValue: letter });
 
     this.setState((prevState, props) => ({
       currentLetterValue: prevState.randLetterValue
     }));
-
-    return letter
   }
 
 
   onButtonClick(e) {
-    var letter = this.getRandLetter();
+    this.getRandLetter();
     var input = e.currentTarget.textContent;
-
-    this.setState({ randLetterValue: letter });
 
     if (this.state.currentLetterValue === input) {
       this.setState({ scoreCounter: this.state.scoreCounter + 1});
@@ -85,7 +75,6 @@ class AppMainPortal extends React.Component {
             return <button onClick={this.onButtonClick} key={i}>{items.id}</button>
           })}
         </div>
-        <p>{this.state.test}</p>
       </div>
     );
   }
