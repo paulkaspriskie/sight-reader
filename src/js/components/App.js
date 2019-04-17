@@ -31,6 +31,12 @@ class App extends React.Component {
     fetch('./data/data.json')
       .then(response => response.json())
       .then(data => this.setState({data}));
+
+    var Data = this.state.data;
+    var arr = [];
+
+    Object.keys(Data).forEach(function(key) { arr.push(Data[key]); })
+    this.setState({data: arr});
   }
 
 

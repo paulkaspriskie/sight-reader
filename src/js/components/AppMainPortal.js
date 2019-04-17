@@ -20,7 +20,6 @@ class AppMainPortal extends React.Component {
 
 
   componentDidMount() {
-
     this.getRandLetter();
   }
 
@@ -33,21 +32,13 @@ class AppMainPortal extends React.Component {
 
 
   getRandLetter() {
-    var Data = this.props.data;
-    var arr = [];
+    var test = Object.values(this.props.data);
 
-    Object.keys(Data).forEach(function(key) { arr.push(Data[key]); })
-
-    var test = arr.map((items, i) => {
+    test.map((items, i) => {
       var randArr = Math.floor(Math.random() * items.length);
-      return items[randArr];
+      console.log(items[randArr]);
+      // return items[randArr];
     });
-
-    var letterArr = [];
-    letterArr.push(test[0].id);
-    console.log(letterArr[0]);
-    this.setState({ test: letterArr[0] });
-
 
     var letters = ["a", "b", "c", "d", "e", "f", "g"];
     var letter = letters[Math.floor(Math.random() * letters.length)];
@@ -86,20 +77,13 @@ class AppMainPortal extends React.Component {
 
   render() {
 
-    var Data = this.props.data;
-    var arr = [];
-
-    Object.keys(Data).forEach(function(key) { arr.push(Data[key]); });
-
     return (
       <div className="sight-reader-layout-portal-main">
         <h2>Score: {this.state.scoreCounter}</h2>
         <span>{this.state.randLetterValue}</span>
         <div>
-          {arr.map((items, i) => {
-            return items.map((item, i) => {
-              return <button onClick={this.onButtonClick} key={i}>{item.id}</button>
-            })
+          {this.props.data.images.map((items, i) => {
+            return <button onClick={this.onButtonClick} key={i}>{items.id}</button>
           })}
         </div>
       </div>
