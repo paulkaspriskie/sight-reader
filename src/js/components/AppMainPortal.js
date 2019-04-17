@@ -65,7 +65,6 @@ class AppMainPortal extends React.Component {
 
 
   render() {
-
     return (
       <div className="sight-reader-layout-portal-main">
         <h2>Score: {this.state.scoreCounter}</h2>
@@ -78,7 +77,6 @@ class AppMainPortal extends React.Component {
       </div>
     );
   }
-
 }
 
 export default AppMainPortal;
