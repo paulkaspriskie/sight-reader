@@ -1,31 +1,59 @@
 {
   "images" : [
     {
-      "src" : "img/kitten-1.jpg",
+      "src" : "img/a.png",
       "id" : "a"
     },
     {
-      "src" : "img/kitten-2.jpg",
+      "src" : "img/highA.png",
+      "id" : "a"
+    },
+    {
+      "src" : "img/b.png",
       "id" : "b"
     },
     {
-      "src" : "img/kitten-3.jpg",
+      "src" : "img/highB.png",
+      "id" : "b"
+    },
+    {
+      "src" : "img/midC.png",
       "id" : "c"
     },
     {
-      "src" : "img/kitten-3.jpg",
+      "src" : "img/c.png",
+      "id" : "c"
+    },
+    {
+      "src" : "img/d.png",
       "id" : "d"
     },
     {
-      "src" : "img/kitten-3.jpg",
+      "src" : "img/highD.png",
+      "id" : "d"
+    },
+    {
+      "src" : "img/e.png",
       "id" : "e"
     },
     {
-      "src" : "img/kitten-3.jpg",
+      "src" : "img/highE.png",
+      "id" : "e"
+    },
+    {
+      "src" : "img/f.png",
       "id" : "f"
     },
     {
-      "src" : "img/kitten-3.jpg",
+      "src" : "img/highF.png",
+      "id" : "f"
+    },
+    {
+      "src" : "img/g.png",
+      "id" : "g"
+    },
+    {
+      "src" : "img/highG.png",
       "id" : "g"
     }
   ]
