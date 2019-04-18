@@ -8,6 +8,7 @@ class AppMainPortal extends React.Component {
     this.state = {
       randLetterValue: '',
       currentLetterValue: '',
+      imageSource: '',
       scoreCounter: 0,
       highScoreValue: 0
     };
@@ -35,7 +36,10 @@ class AppMainPortal extends React.Component {
 
     dataArr.map((items, i) => {
       var getRandArr = Math.floor(Math.random() * items.length);
-      this.setState({ randLetterValue: items[getRandArr].id });
+      this.setState({
+        randLetterValue: items[getRandArr].id,
+        imageSource: items[getRandArr].src
+      });
     });
 
     this.setState((prevState, props) => ({
@@ -68,7 +72,7 @@ class AppMainPortal extends React.Component {
     return (
       <div className="sight-reader-layout-portal-main">
         <h2>Score: {this.state.scoreCounter}</h2>
-        <span>{this.state.randLetterValue}</span>
+        <img src={this.state.imageSource}></img>
         <div>
           {this.props.data.images.map((items, i) => {
             return <button onClick={this.onButtonClick} key={i}>{items.id}</button>
