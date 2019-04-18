@@ -11,7 +11,7 @@ class AppMainPortal extends React.Component {
       imageSource: '',
       scoreCounter: 0,
       highScoreValue: 0,
-      test: []
+      buttonValue: []
     };
 
     this.onButtonClick = this.onButtonClick.bind(this);
@@ -37,25 +37,21 @@ class AppMainPortal extends React.Component {
 
     dataArr.map((items, i) => {
       var getRandArr = Math.floor(Math.random() * items.length);
+      var letterArr = [];
+
+      items.map((item, i) => letterArr.push(item.id));
+      let removeDuplicates = [...new Set(letterArr)];
+
       this.setState({
         randLetterValue: items[getRandArr].id,
-        imageSource: items[getRandArr].src
+        imageSource: items[getRandArr].src,
+        buttonValue: removeDuplicates
       });
     });
 
     this.setState((prevState, props) => ({
       currentLetterValue: prevState.randLetterValue
     }));
-
-    var arr = [];
-
-    this.props.data.images.map((items, i) => {
-      var test = Object.values(items);
-      arr.push(items.id)
-    });
-
-    let unique = [...new Set(arr)];
-    this.setState({test: unique});
   }
 
 
@@ -85,7 +81,7 @@ class AppMainPortal extends React.Component {
         <h2>Score: {this.state.scoreCounter}</h2>
         <img src={this.state.imageSource}></img>
         <div>
-          {this.state.test.map((items, i) => {
+          {this.state.buttonValue.map((items, i) => {
             return <button onClick={this.onButtonClick} key={i}>{items}</button>
           })}
         </div>
