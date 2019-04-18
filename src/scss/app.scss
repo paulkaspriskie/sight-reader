@@ -18,7 +18,7 @@ html {
     align-items: center;
 
     & > div {
-      width: 90%;
+      width: 100%;
       text-align: center;
     }
 
@@ -35,6 +35,10 @@ html {
 
   &-header {
     display: flex;
+    padding: 0 5% 0 5%;
+    border-bottom: 1px solid #F4511E;
+    background-color: #C2185B;
+    color: #ffffff;
     justify-content: space-between;
     align-items: center;
 
@@ -50,6 +54,7 @@ html {
 
 
   &-portal-main {
+    padding: 2.5rem 5% 0 5%;
 
     & > h2 { font-size: 15pt; }
 
