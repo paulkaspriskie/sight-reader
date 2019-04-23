@@ -31,21 +31,39 @@ html {
       color: #ffffff;
       background-color: #d81b60;
       font-size: 14pt;
+      cursor: pointer;
+      outline: none;
     }
   }
 
 
   &-header {
     display: flex;
-    padding: 0 6% 0 6%;
+    padding: 0 3% 0 3%;
     justify-content: space-between;
     align-items: center;
     color: #4d4e4f;
     border-bottom: 1.5px solid #d81b60;
 
-    input { cursor: pointer; }
+    button {
+      padding-left: 0;
+      font-size: 14pt;
+      text-transform: uppercase;
+      border: none;
+      background: none;
+      color: #d81b60;
+      cursor: pointer;
+      outline: none;
+    }
+
+    button::before {
+      content: '\2630';
+      padding-right: 0.5rem;
+      font-size: 16pt;
+    }
 
     & > h1 {
+      padding-left: 2.5rem;
       font-size: 15pt;
       font-weight: normal;
     }
@@ -57,7 +75,10 @@ html {
   &-portal-main {
     padding: 2.5rem 5% 0 5%;
 
-    & > h2 { font-size: 15pt; }
+    & > h2 {
+      color: #4d4e4f;
+      font-size: 15pt;
+    }
 
     & > img {
       display: block;

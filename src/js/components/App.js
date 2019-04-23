@@ -17,7 +17,8 @@ class App extends React.Component {
       counter: 60,
       buttonActive: true,
       showComponent: false,
-      currentHighScore: defaultScoreValue
+      currentHighScore: defaultScoreValue,
+      menuStatus: ''
     };
 
     this.startTimer = this.startTimer.bind(this);
@@ -37,6 +38,7 @@ class App extends React.Component {
 
     Object.keys(Data).forEach(function(key) { arr.push(Data[key]); })
     this.setState({data: arr});
+    // this.toggleMenu();
   }
 
 
