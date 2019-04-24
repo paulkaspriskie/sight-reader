@@ -22,10 +22,6 @@ html {
       text-align: center;
     }
 
-    & div:nth-child(2) {
-      display: none;
-    }
-
     & > button {
       position: absolute;
       left: 50%;
@@ -38,8 +34,6 @@ html {
       cursor: pointer;
       outline: none;
     }
-
-    .showMenu {display: block !important;}
   }
 
 
@@ -78,7 +72,7 @@ html {
   }
 
 
-  &-nav { display: none; }
+  &-nav { display: block; }
 
 
   &-portal-main {
