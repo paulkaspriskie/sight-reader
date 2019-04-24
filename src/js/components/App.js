@@ -40,7 +40,6 @@ class App extends React.Component {
 
     Object.keys(Data).forEach(function(key) { arr.push(Data[key]); })
     this.setState({data: arr});
-    // this.toggleMenu();
   }
 
 
@@ -87,8 +86,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="sight-reader-layout-wrapper">
-        <AppHeader toggleMenu={this.toggleMenu} menuStatus={this.state.toggle} counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
         <AppMainNav menuStatus={this.state.toggle}/>
+        <AppHeader toggleMenu={this.toggleMenu} menuStatus={this.state.toggle} counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
         {this.state.showComponent ? <AppMainPortal data={this.state.data} onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
         <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
       </div>
