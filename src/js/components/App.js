@@ -1,5 +1,6 @@
 import React from 'react';
 import AppHeader from './AppHeader';
+import AppMainNav from './AppMainNav';
 import AppMainPortal from './AppMainPortal';
 
 
@@ -18,9 +19,10 @@ class App extends React.Component {
       buttonActive: true,
       showComponent: false,
       currentHighScore: defaultScoreValue,
-      menuStatus: ''
+      toggle: true
     };
 
+    this.toggleMenu = this.toggleMenu.bind(this);
     this.startTimer = this.startTimer.bind(this);
     this.countDown = this.countDown.bind(this);
     this.getChildData = this.getChildData.bind(this);
@@ -77,10 +79,16 @@ class App extends React.Component {
   }
 
 
+  toggleMenu() {
+   this.setState((prevState) => ({ toggle: !prevState.toggle }) );
+  }
+
+
   render() {
     return (
       <div className="sight-reader-layout-wrapper">
-        <AppHeader counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
+        <AppHeader toggleMenu={this.toggleMenu} menuStatus={this.state.toggle} counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
+        <AppMainNav menuStatus={this.state.toggle}/>
         {this.state.showComponent ? <AppMainPortal data={this.state.data} onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
         <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
       </div>
@@ -88,5 +96,5 @@ class App extends React.Component {
   }
 
 }
-
+// className={this.state.toggle ? '' : 'showMenu'}
 export default App;
