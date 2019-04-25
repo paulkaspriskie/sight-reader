@@ -88,7 +88,7 @@ class App extends React.Component {
       <div className="sight-reader-layout-wrapper">
         <AppMainNav menuStatus={this.state.toggle}/>
         <AppHeader toggleMenu={this.toggleMenu} menuStatus={this.state.toggle} counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
-        {this.state.showComponent ? <AppMainPortal data={this.state.data} onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
+        {this.state.showComponent ? <AppMainPortal menuStatus={this.state.toggle} data={this.state.data} onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
         <button id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
       </div>
     );
