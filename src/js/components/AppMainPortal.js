@@ -66,7 +66,8 @@ class AppMainPortal extends React.Component {
     }
 
     this.setState({totalCount: this.state.totalCount + 1}, function() {
-      this.setState({accuracyPercentage: this.state.scoreCounter / this.state.totalCount * 100});
+      var roundPercent = Math.round(this.state.scoreCounter / this.state.totalCount * 100);
+      this.setState({accuracyPercentage: roundPercent });
     });
   }
 
@@ -82,13 +83,10 @@ class AppMainPortal extends React.Component {
 
 
   render() {
-    var accuracyStr = this.state.accuracyPercentage.toString();
-    var accuracyValue = accuracyStr.slice(0, (accuracyStr.indexOf("."))+4);
-
     return (
       <div className="sight-reader-layout-portal-main">
         <h2>Score: {this.state.scoreCounter}</h2>
-        <h2>Accuracy: {accuracyValue}%</h2>
+        <h2>Accuracy: {this.state.accuracyPercentage}%</h2>
         <img src={this.state.imageSource}></img>
         <div>
           {this.state.buttonValue.map((items, i) => {
