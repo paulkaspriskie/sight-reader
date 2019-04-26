@@ -13,7 +13,8 @@ class AppMainPortal extends React.Component {
       highScoreValue: 0,
       buttonValue: [],
       totalCount: 0,
-      accuracyPercentage: 0
+      accuracyPercentage: 0,
+      feedbackClass: ''
     };
 
     this.onButtonClick = this.onButtonClick.bind(this);
@@ -62,12 +63,13 @@ class AppMainPortal extends React.Component {
     var input = e.currentTarget.textContent;
 
     if (this.state.currentLetterValue === input) {
-      this.setState({ scoreCounter: this.state.scoreCounter + 1});
-    }
+      this.setState({scoreCounter: this.state.scoreCounter + 1});
+      this.setState({feedbackClass: 'valid'});
+    } else { this.setState({feedbackClass: 'invalid'}); }
 
     this.setState({totalCount: this.state.totalCount + 1}, function() {
       var roundPercent = Math.round(this.state.scoreCounter / this.state.totalCount * 100);
-      this.setState({accuracyPercentage: roundPercent });
+      this.setState({accuracyPercentage: roundPercent});
     });
   }
 
@@ -86,6 +88,7 @@ class AppMainPortal extends React.Component {
     return (
       <div className="sight-reader-layout-portal-main">
         <h2>Score: {this.state.scoreCounter}</h2>
+        <span className={this.state.feedbackClass}></span>
         <h2>Accuracy: {this.state.accuracyPercentage}%</h2>
         <img src={this.state.imageSource}></img>
         <div>

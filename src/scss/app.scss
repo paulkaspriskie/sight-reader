@@ -107,10 +107,27 @@ html {
 
     & > h2 {
       display: inline-block;
-      padding: 0 1rem 0 1rem;
+      padding: 0 1.5rem 0 1.5rem;
       color: #4d4e4f;
       font-size: 15pt;
+
+      &:first-of-type { padding-right: 0.4rem; }
     }
+
+    & > span {
+      font-size: 14pt;
+
+      &.valid::after {
+        content: '\2713';
+        color: #2e7d32;
+      }
+
+      &.invalid::after {
+        content: '\2716';
+        color: #c62828;
+      }
+    }
+
 
     & > img {
       display: block;
