@@ -41,7 +41,7 @@ class App extends React.Component {
     Object.keys(Data).forEach(function(key) { arr.push(Data[key]); })
     this.setState({data: arr});
   }
-
+  
 
   countDown() {
     this.setState({counter: this.state.counter - 1});

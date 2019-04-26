@@ -20,6 +20,7 @@ class AppMainPortal extends React.Component {
     this.onButtonClick = this.onButtonClick.bind(this);
     this.getRandLetter = this.getRandLetter.bind(this);
     this.updateHighScore = this.updateHighScore.bind(this);
+    this.saveSessionToStorage = this.saveSessionToStorage.bind(this);
   }
 
 
@@ -32,6 +33,11 @@ class AppMainPortal extends React.Component {
     if (this.props.counter === 0) {
       this.updateHighScore();
     }
+  }
+
+
+  componentWillUnmount() {
+    this.saveSessionToStorage();
   }
 
 
@@ -81,6 +87,18 @@ class AppMainPortal extends React.Component {
         this.props.onChange(this.state.highScoreValue);
       });
     }
+  }
+
+
+  saveSessionToStorage() {
+    var scoreArr = [];
+
+    if (localStorage.getItem('scoreData')) {
+      var scores = JSON.parse(localStorage.getItem('scoreData'));
+      scores.map((items, i) => scoreArr.push(parseInt(items), this.state.scoreCounter));
+    } else { scoreArr.push(this.state.scoreCounter); }
+
+    localStorage.setItem('scoreData',JSON.stringify(scoreArr));
   }
 
 
