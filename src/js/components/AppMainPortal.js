@@ -24,12 +24,13 @@ class AppMainPortal extends React.Component {
     this.onButtonClick = this.onButtonClick.bind(this);
     this.getRandLetter = this.getRandLetter.bind(this);
     this.updateHighScore = this.updateHighScore.bind(this);
-    this.saveSessionToStorage = this.saveSessionToStorage.bind(this);
+    this.calcAvgScore = this.calcAvgScore.bind(this);
   }
 
 
   componentDidMount() {
     this.getRandLetter();
+    console.log(this.state.averageScore);
   }
 
 
@@ -41,7 +42,7 @@ class AppMainPortal extends React.Component {
 
 
   componentWillUnmount() {
-    this.saveSessionToStorage();
+    this.calcAvgScore();
   }
 
 
@@ -94,7 +95,7 @@ class AppMainPortal extends React.Component {
   }
 
 
-  saveSessionToStorage() {
+  calcAvgScore() {
     var scoreArr = [];
 
     if (localStorage.getItem('scoreData')) {
@@ -110,9 +111,9 @@ class AppMainPortal extends React.Component {
 
     localStorage.setItem('scoreData',JSON.stringify(scoreArr));
 
-    var getAverageScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
-    var trimNumber = Math.floor(getAverageScore * 100) / 100;
-    localStorage.setItem('avgScore',JSON.stringify(trimNumber));
+    var getAvgScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
+    var trimAvgScore = Math.floor(getAvgScore * 100) / 100;
+    localStorage.setItem('avgScore',JSON.stringify(trimAvgScore));
   }
 
 
