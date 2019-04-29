@@ -94,9 +94,15 @@ class AppMainPortal extends React.Component {
     var scoreArr = [];
 
     if (localStorage.getItem('scoreData')) {
-      var scores = JSON.parse(localStorage.getItem('scoreData'));
-      scores.map((items, i) => scoreArr.push(parseInt(items), this.state.scoreCounter));
-    } else { scoreArr.push(this.state.scoreCounter); }
+      const getScores = new Promise(() => {
+        var scores = JSON.parse(localStorage.getItem('scoreData'));
+        scores.map((items, i) => scoreArr.push(parseInt(items)));
+      });
+      
+      getScores.then(scoreArr.push(this.state.scoreCounter));
+    } else {
+      scoreArr.push(this.state.scoreCounter);
+    }
 
     localStorage.setItem('scoreData',JSON.stringify(scoreArr));
   }
