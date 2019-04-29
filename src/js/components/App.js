@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
 
     var defaultScoreValue = 0;
-    localStorage.getItem('appData') ? defaultScoreValue = parseInt(localStorage.getItem('appData')) : 0;
+    localStorage.getItem('highScoreValue') ? defaultScoreValue = parseInt(localStorage.getItem('highScoreValue')) : 0;
 
     this.state = {
       data: {},
@@ -41,7 +41,7 @@ class App extends React.Component {
     Object.keys(Data).forEach(function(key) { arr.push(Data[key]); })
     this.setState({data: arr});
   }
-  
+
 
   countDown() {
     this.setState({counter: this.state.counter - 1});
@@ -74,7 +74,7 @@ class App extends React.Component {
 
 
   saveStateToStorage() {
-    localStorage.setItem('appData',JSON.stringify(this.state.currentHighScore));
+    localStorage.setItem('highScoreValue', JSON.stringify(this.state.currentHighScore));
   }
 
 

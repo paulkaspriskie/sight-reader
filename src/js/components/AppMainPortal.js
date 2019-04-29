@@ -30,7 +30,6 @@ class AppMainPortal extends React.Component {
 
   componentDidMount() {
     this.getRandLetter();
-    console.log(this.state.averageScore);
   }
 
 
@@ -105,15 +104,16 @@ class AppMainPortal extends React.Component {
       });
 
       getScores.then(scoreArr.push(this.state.scoreCounter));
+
     } else {
       scoreArr.push(this.state.scoreCounter);
     }
 
-    localStorage.setItem('scoreData',JSON.stringify(scoreArr));
+    localStorage.setItem('scoreData', JSON.stringify(scoreArr));
 
     var getAvgScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
     var trimAvgScore = Math.floor(getAvgScore * 100) / 100;
-    localStorage.setItem('avgScore',JSON.stringify(trimAvgScore));
+    localStorage.setItem('avgScore', JSON.stringify(trimAvgScore));
   }
 
 
