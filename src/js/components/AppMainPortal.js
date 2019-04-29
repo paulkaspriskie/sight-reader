@@ -5,12 +5,16 @@ class AppMainPortal extends React.Component {
   constructor(props) {
     super(props);
 
+    var defaultAvgScore = 0;
+    localStorage.getItem('avgScore') ? defaultAvgScore = parseInt(localStorage.getItem('avgScore')) : 0;
+
     this.state = {
       randLetterValue: '',
       currentLetterValue: '',
       imageSource: '',
       scoreCounter: 0,
       highScoreValue: 0,
+      averageScore: defaultAvgScore,
       buttonValue: [],
       totalCount: 0,
       accuracyPercentage: 0,
@@ -98,13 +102,16 @@ class AppMainPortal extends React.Component {
         var scores = JSON.parse(localStorage.getItem('scoreData'));
         scores.map((items, i) => scoreArr.push(parseInt(items)));
       });
-      
+
       getScores.then(scoreArr.push(this.state.scoreCounter));
     } else {
       scoreArr.push(this.state.scoreCounter);
     }
 
     localStorage.setItem('scoreData',JSON.stringify(scoreArr));
+
+    const getAverageScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
+    localStorage.setItem('avgScore',JSON.stringify(getAverageScore));
   }
 
 
