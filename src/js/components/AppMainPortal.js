@@ -113,7 +113,8 @@ class AppMainPortal extends React.Component {
 
     var getAvgScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
     var trimAvgScore = Math.floor(getAvgScore * 100) / 100;
-    localStorage.setItem('avgScore', JSON.stringify(trimAvgScore));
+    this.setState({ averageScore: localStorage.setItem('avgScore', JSON.stringify(trimAvgScore)) });
+
   }
 
 
@@ -123,6 +124,7 @@ class AppMainPortal extends React.Component {
         <h2>Score: {this.state.scoreCounter}</h2>
         <span className={this.state.feedbackClass}></span>
         <h2>Accuracy: {this.state.accuracyPercentage}%</h2>
+        <p>Avg Score: {this.state.averageScore}</p>
         <img src={this.state.imageSource}></img>
         <div>
           {this.state.buttonValue.map((items, i) => {

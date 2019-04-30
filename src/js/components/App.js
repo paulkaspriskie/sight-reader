@@ -79,7 +79,7 @@ class App extends React.Component {
 
 
   toggleMenu() {
-   this.setState((prevState) => ({ toggle: !prevState.toggle }) );
+    this.setState((prevState) => ({ toggle: !prevState.toggle }) );
   }
 
 
