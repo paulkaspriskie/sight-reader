@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body,
@@ -13,9 +14,6 @@ html {
   display: none;
 }
 
-// #isOpen.sight-reader-layout-header {
-//   transform: translateY(200px);
-// }
 
 .sight-reader-layout {
 
@@ -81,6 +79,11 @@ html {
     }
 
     & > p { font-size: 15pt; }
+  }
+
+
+  .sight-reader-layout-header.isOpen {
+    transform: translateY(200px);
   }
 
 

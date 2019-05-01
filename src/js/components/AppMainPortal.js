@@ -114,7 +114,6 @@ class AppMainPortal extends React.Component {
     var getAvgScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
     var trimAvgScore = Math.floor(getAvgScore * 100) / 100;
     this.setState({ averageScore: localStorage.setItem('avgScore', JSON.stringify(trimAvgScore)) });
-
   }
 
 
