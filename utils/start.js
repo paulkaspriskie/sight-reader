@@ -89,8 +89,18 @@ if (app.get('env') === 'development') {
     awaitWriteFinish: true
   });
 
+
+  if (app.get('env') === 'production') {
+    if (!fs.existsSync('./build/')) {
+      fs.mkdir('./build/', function() {
+        var createDir = new Promise(() => fs.mkdirSync('./build/js/'));
+        createDir.then(fs.writeFile('./build/js/bundle.js'));
+      });
+    }
+  }
+
   renderSass();
-  compileJs();
+  setTimeout(compileJs, 1000);
 
   prodDirWatcher.on('change', (path, stats) => {
     console.info('\x1b[32m',`🎉  Bulid Complete! ${path}`);
@@ -130,27 +140,18 @@ function renderSass() {
  * ECMA script compiler:
  * Uses browserify/babelify to compile ecma script 6 to browser readable js.
  */
- function compileJs() {
 
-   if (app.get('env') === 'development') {
 
-   browserify({ debug: true })
-     .require("./src/js/index.js", { comments: false, entry: true })
-     .transform(babelify, { presets: ["@babel/preset-env", "@babel/preset-react"] })
-     .transform('uglifyify', { sourceMap: false })
-     .bundle()
-     .on("error", function (err) { console.log("Error: " + err.message); })
-     .pipe(fs.createWriteStream("./public/js/bundle.js"));
+function compileJs() {
 
-   } else if (app.get('env') === 'production') {
+  var jsOutput = app.get('env') === 'development' ? "./public/js/bundle.js" : "./build/js/bundle.js";
 
-     browserify({ debug: true })
-       .require("./src/js/index.js", { comments: false, entry: true })
-       .transform(babelify, { presets: ["@babel/preset-env", "@babel/preset-react"] })
-       .transform('uglifyify', { sourceMap: false })
-       .bundle()
-       .on("error", function (err) { console.log("Error: " + err.message); })
-       .pipe(fs.createWriteStream("./build/js/bundle.js"));
+  browserify({ debug: true })
+    .require("./src/js/app.js", { comments: false, entry: true })
+    .transform(babelify, { presets: ["@babel/preset-env", "@babel/preset-react"] })
+    .transform('uglifyify', { sourceMap: false })
+    .bundle()
+    .on("error", function (err) { console.log("Error: " + err.message); })
+    .pipe(fs.createWriteStream(jsOutput));
 
-   }
- }
+}
