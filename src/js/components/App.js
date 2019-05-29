@@ -86,7 +86,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="sight-reader-layout-wrapper">
-        <AppMainNav menuStatus={this.state.toggle}/>
+        <AppMainNav menuStatus={this.state.toggle} currentHighScore={this.state.currentHighScore}/>
 
         <AppHeader
           toggleMenu={this.toggleMenu}
