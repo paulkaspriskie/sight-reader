@@ -9,10 +9,6 @@ html {
 }
 
 #isHidden { display: none; }
-#hideMenu {
-  display: none;
-}
-
 
 .sight-reader-layout {
 
@@ -85,6 +81,7 @@ html {
     transform: translateY(200px);
   }
 
+  &-nav.isHidden{ display: none; }
 
   &-nav {
     display: block;

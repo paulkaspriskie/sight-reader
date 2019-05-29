@@ -4,7 +4,7 @@ import React from 'react';
 class AppMainNav extends React.Component {
   render() {
     return (
-      <div className="sight-reader-layout-nav" id={this.props.menuStatus ? 'hideMenu' : ''}>
+      <div className={`sight-reader-layout-nav ${this.props.menuStatus ? 'isHidden' : ''}`}>
         <ul>
           <li>item 1</li>
           <li>item 2</li>
