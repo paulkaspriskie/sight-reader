@@ -30,11 +30,16 @@ html {
       top: 50%;
       padding: 1rem 2.5rem 1rem 2.5rem;
       transform: translate(-50%,-50%);
+      transition: transform 0.3s;
       color: #ffffff;
       background-color: #d81b60;
       font-size: 14pt;
       cursor: pointer;
       outline: none;
+    }
+
+    & > button.isOpen{
+      transform: translate3d(211px,-50%, 0);
     }
   }
 
@@ -79,6 +84,11 @@ html {
 
   &-header.isOpen {
     transform: translate3d(260px,0px,0px);
+
+    button::before {
+      content:'\00d7';
+      font-size: 22pt;
+    }
   }
 
 
@@ -86,7 +96,7 @@ html {
     transform: translate3d(-260px,0px,0px);
     position: absolute;
     width: 260px !important;
-    height: 100vh;
+    height: 100%;
     top: 0; left: 0;
     transition: all 0.3s;
 
@@ -133,7 +143,7 @@ html {
       }
 
       &.invalid::after {
-        content: '\2716';
+        content: '\00d7';
         color: #c62828;
       }
     }
