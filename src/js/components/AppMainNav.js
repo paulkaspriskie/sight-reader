@@ -2,13 +2,18 @@ import React from 'react';
 
 
 class AppMainNav extends React.Component {
+
+  componentDidMount() {
+    console.log(localStorage.getItem('avgScore'));
+  }
+
   render() {
     return (
       <div className={`sight-reader-layout-nav ${this.props.menuStatus ? '' : 'isOpen'}`}>
         <ul>
-          <li>item 1</li>
-          <li>item 2</li>
-          <li>item 3</li>
+          <li>Statistics</li>
+          <li>High Score: {localStorage.getItem('highScoreValue')}</li>
+          <li>Average Score: {localStorage.getItem('avgScore')}</li>
         </ul>
       </div>
     );

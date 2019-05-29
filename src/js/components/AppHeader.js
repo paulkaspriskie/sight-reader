@@ -2,6 +2,7 @@ import React from 'react';
 
 
 class AppHeader extends React.Component {
+
   render() {
     return (
       <div className={`sight-reader-layout-header ${this.props.menuStatus ? '' : 'isOpen'}`}>

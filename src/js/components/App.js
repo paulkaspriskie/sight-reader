@@ -87,9 +87,25 @@ class App extends React.Component {
     return (
       <div className="sight-reader-layout-wrapper">
         <AppMainNav menuStatus={this.state.toggle}/>
-        <AppHeader toggleMenu={this.toggleMenu} menuStatus={this.state.toggle} counter={this.state.counter} currentHighScore={this.state.currentHighScore} />
-        {this.state.showComponent ? <AppMainPortal menuStatus={this.state.toggle} data={this.state.data} onChange={this.getChildData} counter={this.state.counter} currentHighScore={this.state.currentHighScore} /> : null}
-        <button className={this.state.toggle ? "" : "isOpen"}  id={this.state.buttonActive ? "" : "isHidden"} onClick={this.startTimer}>Start</button>
+
+        <AppHeader
+          toggleMenu={this.toggleMenu}
+          menuStatus={this.state.toggle}
+          counter={this.state.counter}
+          currentHighScore={this.state.currentHighScore} />
+
+        {this.state.showComponent ?
+          <AppMainPortal
+            menuStatus={this.state.toggle}
+            data={this.state.data}
+            onChange={this.getChildData}
+            counter={this.state.counter}
+            currentHighScore={this.state.currentHighScore} /> : null}
+
+        <button
+          className={this.state.toggle ? "" : "isOpen"}
+          id={this.state.buttonActive ? "" : "isHidden"}
+          onClick={this.startTimer}>Start</button>
       </div>
     );
   }
