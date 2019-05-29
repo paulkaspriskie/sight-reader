@@ -3,10 +3,6 @@ import React from 'react';
 
 class AppMainNav extends React.Component {
 
-  componentDidMount() {
-    console.log(localStorage.getItem('avgScore'));
-  }
-
   render() {
     return (
       <div className={`sight-reader-layout-nav ${this.props.menuStatus ? '' : 'isOpen'}`}>
