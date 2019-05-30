@@ -73,6 +73,7 @@ class App extends React.Component {
     this.setState({currentHighScore: data}, this.saveStateToStorage);
   }
 
+
   getAvgData(avgData){
     console.log(avgData);
   }

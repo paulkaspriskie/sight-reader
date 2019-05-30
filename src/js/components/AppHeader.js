@@ -6,7 +6,7 @@ class AppHeader extends React.Component {
   render() {
     return (
       <div className={`sight-reader-layout-header ${this.props.menuStatus ? '' : 'isOpen'}`}>
-        <button onClick={this.props.toggleMenu}>menu</button>
+        <button onClick={this.props.toggleMenu}>{this.props.menuStatus ? 'menu' : 'close'}</button>
         <h1>Time: {this.props.counter}</h1>
         <p>High Score: {this.props.currentHighScore}</p>
       </div>
