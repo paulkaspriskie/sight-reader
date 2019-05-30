@@ -124,6 +124,8 @@ html {
 
   &-portal-main {
     padding: 2.5rem 5% 0 5%;
+    transform: translate3d(0,0,0);
+    transition: transform 0.3s;
 
     & > h2 {
       display: inline-block;
@@ -168,4 +170,5 @@ html {
     }
   }
 
+  &-portal-main.isOpen { transform: translate3d(260px,0px,0px); }
 } //outer most wrapper class

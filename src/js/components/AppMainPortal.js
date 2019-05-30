@@ -119,7 +119,7 @@ class AppMainPortal extends React.Component {
 
   render() {
     return (
-      <div className="sight-reader-layout-portal-main">
+      <div className={`sight-reader-layout-portal-main ${this.props.menuStatus ? '' : 'isOpen'}`}>
         <h2>Score: {this.state.scoreCounter}</h2>
         <span className={this.state.feedbackClass}></span>
         <h2>Accuracy: {this.state.accuracyPercentage}%</h2>
