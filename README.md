@@ -11,11 +11,8 @@ $ git clone https://github.com/paulkaspriskie/sight-reader.git
 ```
 $ npm install
 ```
-> To run dev server
+> Run dev server
 ```
 $ npm start  
 ```
-> Open browser to localhost:3000:
-```
-http://localhost:3000/
-```
+> Open browser to http://localhost:3000/
