@@ -28,7 +28,7 @@ class App extends React.Component {
     this.toggleMenu = this.toggleMenu.bind(this);
     this.startTimer = this.startTimer.bind(this);
     this.countDown = this.countDown.bind(this);
-    this.getChildData = this.getChildData.bind(this);
+    this.getHighScore = this.getHighScore.bind(this);
     this.getAvgScore = this.getAvgScore.bind(this);
     this.saveStateToStorage = this.saveStateToStorage.bind(this);
   }
@@ -77,7 +77,7 @@ class App extends React.Component {
   }
 
 
-  getChildData(data) {
+  getHighScore(data) {
     this.setState({currentHighScore: data}, this.saveStateToStorage);
   }
 
@@ -111,7 +111,7 @@ class App extends React.Component {
           <AppMainPortal
             menuStatus={this.state.toggle}
             data={this.state.data}
-            onChange={this.getChildData}
+            getHighScore={this.getHighScore}
             getAvgScore={this.getAvgScore}
             counter={this.state.counter}
             currentHighScore={this.state.currentHighScore} /> : null}
