@@ -5,16 +5,12 @@ class AppMainPortal extends React.Component {
   constructor(props) {
     super(props);
 
-    var defaultAvgScore = 0;
-    localStorage.getItem('avgScore') ? defaultAvgScore = Number(localStorage.getItem('avgScore')) : 0;
-
     this.state = {
       randLetterValue: '',
       currentLetterValue: '',
       imageSource: '',
       scoreCounter: 0,
       highScoreValue: 0,
-      averageScore: defaultAvgScore,
       buttonValue: [],
       totalCount: 0,
       accuracyPercentage: 0,
@@ -113,7 +109,7 @@ class AppMainPortal extends React.Component {
 
     var getAvgScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
     var trimAvgScore = Math.floor(getAvgScore * 100) / 100;
-    this.setState({ averageScore: localStorage.setItem('avgScore', JSON.stringify(trimAvgScore)) });
+    this.props.getAvgScore(trimAvgScore);
   }
 
 
@@ -123,7 +119,6 @@ class AppMainPortal extends React.Component {
         <h2>Score: {this.state.scoreCounter}</h2>
         <span className={this.state.feedbackClass}></span>
         <h2>Accuracy: {this.state.accuracyPercentage}%</h2>
-        <p>Avg Score: {this.state.averageScore}</p>
         <img src={this.state.imageSource}></img>
         <div>
           {this.state.buttonValue.map((items, i) => {

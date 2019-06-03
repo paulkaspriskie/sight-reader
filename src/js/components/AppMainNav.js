@@ -9,7 +9,7 @@ class AppMainNav extends React.Component {
         <ul>
           <li>Statistics</li>
           <li>High Score: {this.props.currentHighScore}</li>
-          <li>Average Score: {localStorage.getItem('avgScore')}</li>
+          <li>Average Score: {this.props.currentAvgScore}</li>
         </ul>
       </div>
     );

@@ -10,7 +10,9 @@ class App extends React.Component {
     super(props);
 
     var defaultScoreValue = 0;
+    var defaultAvgScore = 0;
     localStorage.getItem('highScoreValue') ? defaultScoreValue = parseInt(localStorage.getItem('highScoreValue')) : 0;
+    localStorage.getItem('avgScore') ? defaultAvgScore = Number(localStorage.getItem('avgScore')) : 0;
 
     this.state = {
       data: {},
@@ -19,6 +21,7 @@ class App extends React.Component {
       buttonActive: true,
       showComponent: false,
       currentHighScore: defaultScoreValue,
+      currentAvgScore: defaultAvgScore,
       toggle: true
     };
 
@@ -26,6 +29,7 @@ class App extends React.Component {
     this.startTimer = this.startTimer.bind(this);
     this.countDown = this.countDown.bind(this);
     this.getChildData = this.getChildData.bind(this);
+    this.getAvgScore = this.getAvgScore.bind(this);
     this.saveStateToStorage = this.saveStateToStorage.bind(this);
   }
 
@@ -68,6 +72,11 @@ class App extends React.Component {
   }
 
 
+  getAvgScore(avg) {
+    this.setState({currentAvgScore: avg}, this.saveStateToStorage);
+  }
+
+
   getChildData(data) {
     this.setState({currentHighScore: data}, this.saveStateToStorage);
   }
@@ -75,6 +84,7 @@ class App extends React.Component {
 
   saveStateToStorage() {
     localStorage.setItem('highScoreValue', JSON.stringify(this.state.currentHighScore));
+    localStorage.setItem('avgScore', JSON.stringify(this.state.currentAvgScore));
   }
 
 
@@ -86,7 +96,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="sight-reader-layout-wrapper">
-        <AppMainNav menuStatus={this.state.toggle} currentHighScore={this.state.currentHighScore}/>
+        <AppMainNav
+          menuStatus={this.state.toggle}
+          currentHighScore={this.state.currentHighScore}
+          currentAvgScore={this.state.currentAvgScore}/>
 
         <AppHeader
           toggleMenu={this.toggleMenu}
@@ -99,6 +112,7 @@ class App extends React.Component {
             menuStatus={this.state.toggle}
             data={this.state.data}
             onChange={this.getChildData}
+            getAvgScore={this.getAvgScore}
             counter={this.state.counter}
             currentHighScore={this.state.currentHighScore} /> : null}
 
