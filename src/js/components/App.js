@@ -83,8 +83,8 @@ class App extends React.Component {
 
 
   saveStateToStorage() {
-    localStorage.setItem('highScoreValue', JSON.stringify(this.state.currentHighScore));
     localStorage.setItem('avgScore', JSON.stringify(this.state.currentAvgScore));
+    localStorage.setItem('highScoreValue', JSON.stringify(this.state.currentHighScore));
   }
 
 

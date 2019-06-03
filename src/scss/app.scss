@@ -39,7 +39,7 @@ html {
     }
 
     & > button.isOpen{
-      transform: translate3d(211px,-50%, 0);
+      transform: translate3d(261px,-50%, 0);
     }
   }
 
@@ -83,7 +83,7 @@ html {
 
 
   &-header.isOpen {
-    transform: translate3d(260px,0px,0px);
+    transform: translate3d(320px,0px,0px);
 
     button::before {
       content:'\00d7';
@@ -93,9 +93,9 @@ html {
 
 
   &-nav {
-    transform: translate3d(-260px,0px,0px);
+    transform: translate3d(-320px,0px,0px);
     position: absolute;
-    width: 260px !important;
+    width: 320px !important;
     height: 100%;
     top: 0; left: 0;
     transition: all 0.3s;
@@ -170,5 +170,5 @@ html {
     }
   }
 
-  &-portal-main.isOpen { transform: translate3d(260px,0px,0px); }
+  &-portal-main.isOpen { transform: translate3d(320px,0px,0px); }
 } //outer most wrapper class
