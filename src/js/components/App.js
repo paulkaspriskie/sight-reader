@@ -11,8 +11,11 @@ class App extends React.Component {
 
     var defaultScoreValue = 0;
     var defaultAvgScore = 0;
+    var defaultAvgAccuracy = 0;
+
     localStorage.getItem('highScoreValue') ? defaultScoreValue = parseInt(localStorage.getItem('highScoreValue')) : 0;
     localStorage.getItem('avgScore') ? defaultAvgScore = Number(localStorage.getItem('avgScore')) : 0;
+    localStorage.getItem('avgAccuracy') ? defaultAvgAccuracy = Number(localStorage.getItem('avgAccuracy')) : 0;
 
     this.state = {
       data: {},
@@ -22,6 +25,7 @@ class App extends React.Component {
       showComponent: false,
       currentHighScore: defaultScoreValue,
       currentAvgScore: defaultAvgScore,
+      currentAvgAccuracy: defaultAvgAccuracy,
       toggle: true
     };
 
@@ -73,8 +77,8 @@ class App extends React.Component {
 
 
   getAvgScore(avg, accuracyAvg) {
-    console.log(accuracyAvg);
     this.setState({currentAvgScore: avg}, this.saveStateToStorage);
+    this.setState({currentAvgAccuracy: accuracyAvg}, this.saveStateToStorage);
   }
 
 
@@ -85,6 +89,7 @@ class App extends React.Component {
 
   saveStateToStorage() {
     localStorage.setItem('avgScore', JSON.stringify(this.state.currentAvgScore));
+    localStorage.setItem('avgAccuracy', JSON.stringify(this.state.currentAvgAccuracy));
     localStorage.setItem('highScoreValue', JSON.stringify(this.state.currentHighScore));
   }
 
@@ -100,7 +105,8 @@ class App extends React.Component {
         <AppMainNav
           menuStatus={this.state.toggle}
           currentHighScore={this.state.currentHighScore}
-          currentAvgScore={this.state.currentAvgScore}/>
+          currentAvgScore={this.state.currentAvgScore}
+          currentAvgAccuracy={this.state.currentAvgAccuracy}/>
 
         <AppHeader
           toggleMenu={this.toggleMenu}
