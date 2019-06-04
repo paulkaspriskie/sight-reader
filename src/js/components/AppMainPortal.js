@@ -119,8 +119,11 @@ class AppMainPortal extends React.Component {
     localStorage.setItem('accuracyData', JSON.stringify(accuracyAvgArr));
 
     var getAvgScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
+    var getAccuracyAvg = accuracyAvgArr.reduce((a,b) => a + b, 0) / accuracyAvgArr.length;
     var trimAvgScore = Math.floor(getAvgScore * 100) / 100;
-    this.props.getAvgScore(trimAvgScore);
+    var trimAccuracyAvg = Math.floor(getAccuracyAvg * 100) / 100;
+
+    this.props.getAvgScore(trimAvgScore, trimAccuracyAvg);
   }
 
 

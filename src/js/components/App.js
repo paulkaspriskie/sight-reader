@@ -72,7 +72,8 @@ class App extends React.Component {
   }
 
 
-  getAvgScore(avg) {
+  getAvgScore(avg, accuracyAvg) {
+    console.log(accuracyAvg);
     this.setState({currentAvgScore: avg}, this.saveStateToStorage);
   }
 
