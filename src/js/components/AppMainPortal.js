@@ -71,7 +71,9 @@ class AppMainPortal extends React.Component {
     if (this.state.currentLetterValue === input) {
       this.setState({scoreCounter: this.state.scoreCounter + 1});
       this.setState({feedbackClass: 'valid'});
-    } else { this.setState({feedbackClass: 'invalid'}); }
+    } else {
+      this.setState({feedbackClass: 'invalid'});
+    }
 
     this.setState({totalCount: this.state.totalCount + 1}, function() {
       var roundPercent = Math.round(this.state.scoreCounter / this.state.totalCount * 100);
@@ -92,20 +94,29 @@ class AppMainPortal extends React.Component {
 
   calcAvgScore() {
     var scoreArr = [];
+    var accuracyAvgArr = [];
 
-    if (localStorage.getItem('scoreData')) {
+    if (localStorage.getItem('scoreData') && localStorage.getItem('accuracyData')) {
+
       const getScores = new Promise(() => {
         var scores = JSON.parse(localStorage.getItem('scoreData'));
+        var accuracyValues = JSON.parse(localStorage.getItem('accuracyData'));
         scores.map((items, i) => scoreArr.push(parseInt(items)));
+        accuracyValues.map((items, i) => accuracyAvgArr.push(parseInt(items)));
       });
 
       getScores.then(scoreArr.push(this.state.scoreCounter));
+      getScores.then(accuracyAvgArr.push(this.state.accuracyPercentage));
 
     } else {
+
       scoreArr.push(this.state.scoreCounter);
+      accuracyAvgArr.push(this.state.accuracyPercentage);
+
     }
 
     localStorage.setItem('scoreData', JSON.stringify(scoreArr));
+    localStorage.setItem('accuracyData', JSON.stringify(accuracyAvgArr));
 
     var getAvgScore = scoreArr.reduce((a,b) => a + b, 0) / scoreArr.length;
     var trimAvgScore = Math.floor(getAvgScore * 100) / 100;
